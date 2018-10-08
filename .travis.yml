@@ -1,0 +1,14 @@
+language: node_js
+sudo: enabled
+node_js:
+- 8.10.0
+before_install:
+- mkdir openssl/ca/private
+- openssl aes-256-cbc -k "$super_secret_password" -in cakey.pem.enc -out openssl/ca/private/cakey.pem
+  -d
+install:
+- npm install mocha
+- npm install -g istanbul
+env:
+  global:
+    secure: tWpB6ucVgJkrdbLEc9N6kzeC3I7f69f/aYFy5DDazxiDXaRjvGWn7CKxR2aRaHuHk/LBqaVc+OxYbTcQlYoZUnwJYQjYFLWWjmXbhCf5HDaPjH9R8WoXJ1FtrZvcGRCjz8UVQWSzHv8VGS47xqjnSX+SDoY8Buhz5oDCEO3cVbz7w7QW730HodVmJCNgCOj7AKziAQIK6rufj7+01ses4wsIQCNBJAGwlNw78XiP8Vcr2Ko8JuK8Yq7phonYg3mQ5bCvz9+a1wEMl30CCT4+x0ePTmTbVN6RdgKnwM7cqgOjBOU9bCHWdEsO6fHBgucNi0AM0CGV1oDKcCtZkYkP65h1Q+tZN/WsTNi9NtYGK09qv2apOtgnJy/jDFKGRS3pGPDRqcY/b/1QPns4rOLESHgM2W4UumOFOmsxifIe3xSZZgjMVXg0sk2xA+3gxnMUzlFX5gFzE45xsnFw+fpEpToLRo4e6eg6GXDSE6QeZGurZHpj2Zl9nofFb/ggHxwfl7Ca2hI3vT3Dm2jlP/ckYvFWj/NuquaeaNA48LKEKGYYocFvUPyzcyEkM+Z1AnN+r9fLWlFUip34/7/MLRxi5WeolXnJTXVIWmkC+vriLvcZUdCX/0Rw+B6LF/rzxrMq0n84XbuF/2gxHqQtRdX6WHd/jaZ4cARKjw70vROlG/M=
