@@ -1,5 +1,7 @@
 # SignuCA
 
+[![Build Status](https://travis-ci.com/marcosruiz/SignuCA.svg?branch=master)](https://travis-ci.com/marcosruiz/SignuCA)
+
 Certificate Authority for SignuApp
 
 We can:
