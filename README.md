@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.com/marcosruiz/SignuCA.svg?branch=master)](https://travis-ci.com/marcosruiz/SignuCA)
 
+[![codecov](https://codecov.io/gh/marcosruiz/SignuCA/branch/master/graph/badge.svg)](https://codecov.io/gh/marcosruiz/SignuCA)
+
 Certificate Authority for SignuApp
 
 We can:
