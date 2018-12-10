@@ -40,7 +40,7 @@ default_ca	= CA_default		# The default ca section
 [ CA_default ]
 
 #dir		= C:/Users/marco/WebstormProjects/SignuTimes2/openssl/ca		# Where everything is kept
-dir		= openssl/ca		# Where everything is kept
+dir		= /app/openssl/ca		# Where everything is kept
 certs		= $dir/certs		# Where the issued certs are kept
 crl_dir		= $dir/crl		# Where the issued crl are kept
 database	= $dir/index.txt	# database index file.
@@ -335,7 +335,7 @@ default_tsa = tsa_config1	# the default TSA section
 
 # These are used by the TSA reply generation only.
 #dir		= C:/Users/marco/WebstormProjects/SignuTimes2/openssl/ca		# TSA root directory
-dir		= openssl/ca		# TSA root directory
+dir		= /app/openssl/ca		# TSA root directory
 serial		= $dir/tsaserial	# The current serial number (mandatory)
 crypto_device	= builtin		# OpenSSL engine to use for signing
 signer_cert	= $dir/tsacert.pem 	# The TSA signing certificate
