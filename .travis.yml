@@ -5,12 +5,12 @@ before_install:
 - mkdir openssl/ca/private
 - openssl aes-256-cbc -k "$super_secret_password" -in cakey.pem.enc -out openssl/ca/private/cakey.pem
   -d
-- ll openssl/ca/private
+- ls -l openssl/ca/private
 install:
   - npm install mocha
   - npm install -g istanbul
   - npm install -g codecov
-  - ll openssl/ca/private
+  - ls -l openssl/ca/private
 script:
   - codecov
 env:
