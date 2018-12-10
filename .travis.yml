@@ -10,7 +10,6 @@ install:
   - npm install mocha
   - npm install -g istanbul
   - npm install -g codecov
-  - ls -l openssl/ca/private
 script:
   - codecov
 env:
