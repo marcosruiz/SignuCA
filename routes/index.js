@@ -19,9 +19,14 @@ router.get('/', function (req, res) {
 
 router.post('/cert', processCSR);
 
+router.get('/cacert', function (req, res, next) {
+    res.download(cacert, 'cacert.pem');
+});
+
 router.get('/ocsp', function (req, res) {
     res.send("Welcome to GET OCSP");
 });
+
 router.post('/ocsp', postOCSP);
 
 router.get('/ca.crl', getCRL);
@@ -29,12 +34,19 @@ router.get('/ca.crl', getCRL);
 router.get('/revoke', revokeCert);
 
 
+/**
+ * Process a Certificate Signing Request .CSR and return a .PEM
+ * Sign
+ * @param req
+ * @param res
+ * @param next
+ */
 function processCSR(req, res, next) {
     req.on('data', function (data) {
         fs.writeFileSync('file.csr', data);
     });
     req.on('end', function () {
-        generateCSRReply('file.csr', function(err, reply){
+        generateCSRReply('file.csr', function (err, reply) {
             if (err) {
                 res.status(500).send("Internal error");
             } else {
@@ -45,6 +57,11 @@ function processCSR(req, res, next) {
     });
 }
 
+/**
+ * Generates a .PEM certificate signed by server
+ * @param query
+ * @param callback
+ */
 function generateCSRReply(query, callback) {
     const dirname = path.dirname(query);
     const basename = path.basename(query, path.extname(query));
@@ -64,7 +81,7 @@ function generateCSRReply(query, callback) {
 
 
 /**
- * Not tested
+ * It revokes a cert
  * @param req
  * @param res
  * @param next
@@ -85,6 +102,12 @@ function revokeCert(req, res, next) {
     });
 }
 
+/**
+ * Returns Current Revocation List
+ * @param req
+ * @param res
+ * @param next
+ */
 function getCRL(req, res, next) {
     // Update CRL
     // openssl ca -config openssl.cnf -gencrl -out ca/crl/ca.crl.pem
@@ -96,22 +119,12 @@ function getCRL(req, res, next) {
         const child2 = exec(cmd, (err, stdout, stderr) => {
             if (err) return next(err);
             // Send CRL
-            res.status(200);
-            res.download(crl, 'ca.crl');
+            res.header('Content-Disposition', 'attachment; filename=ca.crl');
+            res.header('content-type', 'application/pkix-crl');
+            res.status(HttpStatus.OK).download(crl, 'ca.crl');
         });
     });
 }
-
-var serviceCallback = function (response) {
-    return function (err, obj) {
-        console.log(response);
-        if (err) {
-            response.send(500);
-        } else {
-            response.send(obj);
-        }
-    }
-};
 
 /**
  * check this with: openssl ocsp
@@ -127,9 +140,20 @@ function postOCSP(req, res) {
         req.on('end', function () {
             console.log("ocsp");
             res.header('content-type', 'application/ocsp-response');
-            res.status(200).send("BLA");
+            res.status(200).send("TODO");
         });
     }
 }
+
+var serviceCallback = function (response) {
+    return function (err, obj) {
+        console.log(response);
+        if (err) {
+            response.send(500);
+        } else {
+            response.send(obj);
+        }
+    }
+};
 
 module.exports = router;

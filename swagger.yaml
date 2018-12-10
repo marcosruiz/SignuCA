@@ -1,0 +1,65 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: SignuCA API
+  description: A simple CA to get times
+  contact:
+    email: sobrenombre@gmail.com
+host: 'https://signu-ca.herokuapp.com/'
+schemes:
+  - http
+  - https
+basePath: /
+paths:
+  /:
+    get:
+      tags:
+      summary: Welcome page
+      description: Welcome page
+      produces:
+        - text/html
+      parameters:
+      responses:
+        '200':
+          description: Shows a simple welcome page
+  /ocsp:
+    post:
+      summary: It sends a OCSP request
+      description: It sends a OCSP request
+      produces:
+        - application/ocsp-response
+      parameters:
+      responses:
+        '200':
+          description: A OCSP as binary file
+  /ca.crl:
+    get:
+      summary: It sends the actual Certificate Revocation List
+      description: It sends the actual Certificate Revocation List
+      produces:
+        - application/pkix-crl
+      parameters:
+      responses:
+        '200':
+          description: A CRL as binary file
+  /cert:
+    get:
+      summary: It creates a certificate
+      description: It creates a certificate
+      produces:
+        - text/html
+      parameters:
+      responses:
+        '200':
+          description: NaN
+  /revoke:
+      get:
+        summary: It revokes a Certificate
+        description: It revokes a Certificate
+        produces:
+          - text/html
+        parameters:
+        responses:
+          '200':
+            description: NaN
+
