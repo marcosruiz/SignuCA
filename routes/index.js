@@ -114,10 +114,18 @@ function getCRL(req, res, next) {
     // openssl crl -inform PEM -in ca/crl/ca.crl.pem -outform DER -out ca/crl/ca.crl
     var cmd = `${ssl} ca -config ${config} -gencrl -out ${crlPem}`;
     const child = exec(cmd, (err, stdout, stderr) => {
-        if (err) return next(err);
+        if (err) {
+            console.log(stdout);
+            console.log(stderr);
+            return next(err);
+        }
         cmd = `${ssl} crl -inform PEM -in ${crlPem} -outform DER -out ${crl}`;
         const child2 = exec(cmd, (err, stdout, stderr) => {
-            if (err) return next(err);
+            if (err) {
+                console.log(stdout);
+                console.log(stderr);
+                return next(err);
+            }
             // Send CRL
             res.header('Content-Disposition', 'attachment; filename=ca.crl');
             res.header('content-type', 'application/pkix-crl');

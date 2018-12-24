@@ -3,8 +3,7 @@ node_js:
 - 8.10.0
 before_install:
 - mkdir openssl/ca/private
-- openssl aes-256-cbc -k "$super_secret_password" -in cakey.pem.enc -out openssl/ca/private/cakey.pem
-  -d
+- openssl aes-256-cbc -k "$super_secret_password" -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d
 - ls -l openssl/ca/private
 install:
   - npm install mocha
