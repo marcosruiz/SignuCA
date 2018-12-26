@@ -1,0 +1,7 @@
+V	191226122925Z		01	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=testu4eAM@gmail.com
+R	191226123015Z	181226123015Z	02	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=test3RpHK@gmail.com
+R	191226123016Z	181226123016Z	03	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=test3RpHK@gmail.com
+R	191226123019Z	181226123019Z	04	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=test3RpHK@gmail.com
+R	191226123049Z	181226123049Z	05	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=testC3Ard@gmail.com
+R	191226123051Z	181226123051Z	06	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=testC3Ard@gmail.com
+R	191226123051Z	181226123051Z	07	unknown	/C=ES/ST=Zaragoza/O=Signu/OU=Signu/CN=SignuTest/emailAddress=testC3Ard@gmail.com
