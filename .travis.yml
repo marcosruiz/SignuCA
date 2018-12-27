@@ -21,4 +21,5 @@ deploy:
   app: signu-ca
   run:
     - "mkdir /app/openssl/ca/private"
+    - "ls -l /app/openssl/ca"
     - "ls -l /app/openssl/ca/private"
