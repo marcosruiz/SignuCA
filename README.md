@@ -123,7 +123,7 @@ Write the API key from your Account Settings instead of `$(heroku auth:token)` i
 
 This will deploy each time you push changes but still not decrypt the encrypted files such as cakey.pem.enc
 
-
+If you want to check something of the filesystem of Heroku you have to write this command `heroku run bash --app signu-ca`
 
 ~~~
 
