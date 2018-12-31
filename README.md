@@ -101,3 +101,34 @@ git rm -r --cached .
 git add .
 git commit -m "fixed untracked files"
 ~~~
+
+# Travis
+
+First of all you need to install Ruby on your computer and RubyGems. After that you can install travis like this `gem install travis`. You may need to use super user privileges.
+
+You have to login on travis to continue `travis login`. I use my GitHub credentials to login.
+
+If you want to encrypt a file you have to copy this on the command line.
+
+~~~
+~~~
+
+
+# Heroku
+
+First go to Account Settings on Heroku website and copy API Key.
+
+Then write on the command line this `travis encrypt $(heroku auth:token) --add deploy.api_key`. 
+Write the API key from your Account Settings instead of `$(heroku auth:token)` if the command don't deploy on Heroku successfully when you push the changes.
+
+This will deploy each time you push changes but still not decrypt the encrypted files such as cakey.pem.enc
+
+
+
+~~~
+
+
+
+
+
+~~~
