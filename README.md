@@ -20,7 +20,7 @@ I recommend use the native command prompt of your OS to follow the following ste
 You must stay in SignuTimes/ and create this directory if it does not exist
 
 ~~~
-mkdir openssl
+mkdir openssl 
 cd openssl
 mkdir ca
 cd ca
@@ -111,8 +111,10 @@ You have to login on travis to continue `travis login`. I use my GitHub credenti
 If you want to encrypt a file you have to copy this on the command line.
 
 ~~~
+travis encrypt-file openssl/ca/private/cakey.pem --add
 ~~~
 
+After this you will have 2 new enviroment variables that you can check on Settings, `https://travis-ci.com/marcosruiz/SignuCA/settings` in my case.
 
 # Heroku
 
