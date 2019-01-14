@@ -22,5 +22,6 @@ deploy:
   app: signu-ca
   run:
     - "mkdir openssl/ca/private"
+    - "ls -l openssl/ca"
     - "openssl aes-256-cbc -K $encrypted_597acb616421_key -iv $encrypted_597acb616421_iv -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d"
 
