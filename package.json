@@ -35,6 +35,6 @@
     "start": "node bin/www",
     "test": "mocha",
     "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    "heroku-postbuild": "echo This runs afterwards."
+    "heroku-postbuild": "openssl aes-256-cbc -K $encrypted_597acb616421_key -iv $encrypted_597acb616421_iv -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d"
   }
 }
