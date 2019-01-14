@@ -2,7 +2,6 @@ language: node_js
 node_js:
 - 8.10.0
 before_install:
-- mkdir openssl/ca/private
 - openssl aes-256-cbc -K $encrypted_597acb616421_key -iv $encrypted_597acb616421_iv
   -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d
 - ls -l openssl/ca/private
@@ -22,4 +21,4 @@ deploy:
   app: signu-ca
   run:
     - "openssl aes-256-cbc -K $encrypted_597acb616421_key -iv $encrypted_597acb616421_iv -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d"
-
+    - "ls -l openssl/ca/private"
