@@ -20,5 +20,7 @@ deploy:
     secure: CCCwYnF7XvwV9D3UVvvnFv2MoGfZLZw1/EUq4/urOOVNFKiJEW7Xs0E041nH0r0zz47Ja+qX0QENmEg1YaiISGfi/z42cXlsBe1wZy5vHe+NbLLF395AqiPCtBYs+7DXXXVECOhuD46B5BnSPGs52o+Kh4KdVHGkJrjjJXyIkDZtmR9faruQA52/TF+1II3/UIRltwMn91UQhFUxbPHUu1Rw/YY4Uc2LTtbIvx+/Jo/l9ih19hwG2lW5gcQDTRz75BBX3XvqxL9dbi5kis8/J/wU01C1LB69H9qJambQNpZzjrJAzT49IMCLgNr6KoVwmyqiPRM3SwLCuBsoGwfIP7W6VLfk9sERUlfMARaqK1BMUb47NhhwWfInoWuUrNxngz2dJtDGv8XPJt4fS2P3HT3iot15EF5ajaHtPFThJ4TicGCiDt6XbQXX6AIKAWR6x78Q90K3C8zG3u1z0HVZtfbUl9IyGjyAmEHPbG+jUBLDt9JACBL2qxfOGvysDPa6eedTR8KVBG1LIl3+BZNJaTbudcDqJ0Eltwrgc8mkbTAA3Y8L/zqlODYD5JyWsTBHE9xNtQBvEm5iVMIraL64Lrj3KoUPgf4WkXh0iWIs7D8tMQNicdUfjjQBQi23P/1y39nKFJo8zArQkywqnT7lrFT6XPQ/o/vexyu3XTYNbyI=
   app: signu-ca
   run:
+    - "echo $encrypted_597acb616421_key"
+    - "echo $encrypted_597acb616421_iv"
     - "openssl aes-256-cbc -K $encrypted_597acb616421_key -iv $encrypted_597acb616421_iv -in cakey.pem.enc -out openssl/ca/private/cakey.pem -d"
     - "ls -l openssl/ca/private"
